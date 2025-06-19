@@ -95,6 +95,15 @@ img {
   max-width: 1240px;
 }
 
+.more {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  transition: opacity 500ms ease-in-out;
+}
+
 .hidden {
   position: absolute;
   width: 1px;

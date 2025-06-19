@@ -10,8 +10,11 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const list = document.querySelector('.list');
+export const list = document.querySelector('.list');
 const loader = document.querySelector('.loader');
+
+// додам кнопку more ДЗ №12
+export const more = document.querySelector('.btn-more');
 
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
@@ -90,4 +93,14 @@ export function showLoader() {
 
 export function hideLoader() {
   loader.classList.add('hidden');
+}
+
+// ДЗ №12 ховаємо та показуємо кнопку more
+
+export function showMore() {
+  more.classList.remove('hidden');
+}
+
+export function hideMore() {
+  more.classList.add('hidden');
 }

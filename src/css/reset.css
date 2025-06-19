@@ -80,8 +80,8 @@
   transition: opacity 500ms ease-in-out;
 }
 
-
-.form:hover {
+.form:hover,
+.more:hover {
   opacity: 1;
 }
 
@@ -114,6 +114,13 @@
   cursor: pointer;
 }
 
+.btn-more {
+  width: 120px;
+  margin-bottom: 24px;
+}
+
+.btn-more:hover,
+.btn-more:focus,
 .form-btn:hover,
 .form-btn:focus {
   background-color: #6c8cff;
