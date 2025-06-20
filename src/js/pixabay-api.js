@@ -22,7 +22,7 @@ const BASE_URL = 'https://pixabay.com/api/';
 
 // query - те що вводить користувач
 
-export async function getImagesByQuery(query) {
+export async function getImagesByQuery(query, page) {
   const response = await axios(BASE_URL, {
     params: {
       key: API_KEY,
@@ -30,6 +30,8 @@ export async function getImagesByQuery(query) {
       image_type: 'photo',
       orientation: 'horizontal',
       safesearch: true,
+      per_page,
+      page,
     },
   });
 
@@ -39,7 +41,7 @@ export async function getImagesByQuery(query) {
 
 // додавання параметрів на кількість карток та сторінок
 
-export let page = 1;
+// export let page = 1;
 export let per_page = 15;
 
 //   запит на сервер
