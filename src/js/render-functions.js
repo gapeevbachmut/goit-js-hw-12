@@ -10,7 +10,7 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-export const list = document.querySelector('.list');
+const list = document.querySelector('.list');
 const loader = document.querySelector('.loader');
 
 // додам кнопку more ДЗ №12
@@ -44,7 +44,7 @@ export function createGallery(images) {
         <div class="descr-img">
           <span class="descr-label">
             <svg width="10" height="10">
-              <use href="/img/icons.svg#icon-likes"></use>
+              <use href="/public/icons.svg#icon-likes"></use>
             </svg>
           Likes:</span>
           <span class="descr-value">${likes}</span>
@@ -52,7 +52,7 @@ export function createGallery(images) {
         <div class="descr-img">
           <span class="descr-label">
             <svg width="10" height="10">
-              <use href="/img/icons.svg#icon-views"></use>
+              <use href="/public/icons.svg#icon-views"></use>
             </svg>
           Views:</span>
           <span class="descr-value">${views}</span>
@@ -60,7 +60,7 @@ export function createGallery(images) {
         <div class="descr-img">
           <span class="descr-label">
             <svg width="10" height="10">
-              <use href="/img/icons.svg#icon-comments"></use>
+              <use href="/public/icons.svg#icon-comments"></use>
             </svg>
           Comments:</span>
           <span class="descr-value">${comments}</span>
@@ -68,7 +68,7 @@ export function createGallery(images) {
         <div class="descr-img">
           <span class="descr-label">
             <svg width="10" height="10">
-              <use href="/img/icons.svg#icon-download"></use>
+              <use href="/public/icons.svg#icon-download"></use>
             </svg>
           Downloads:</span>
           <span class="descr-value">${downloads}</span>
@@ -97,10 +97,10 @@ export function hideLoader() {
 
 // ДЗ №12 ховаємо та показуємо кнопку more
 
-export function showMore() {
+export function showLoadMoreButton() {
   more.classList.remove('hidden');
 }
 
-export function hideMore() {
+export function hideLoadMoreButton() {
   more.classList.add('hidden');
 }

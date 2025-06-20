@@ -7,24 +7,11 @@ import axios from 'axios';
 const API_KEY = '50822594-66f906f8174863719ea2394f1';
 const BASE_URL = 'https://pixabay.com/api/';
 
-//  змінна параметрів
-// const params = new URLSearchParams({
-//   key: API_KEY,
-//   q: query,
-//   image_type: 'photo',
-//   orientation: 'horizontal',
-//   safesearch: true,
-// });
-
-//  дефолтна адреса
-// axios.defaults.baseURL = 'https://pixabay.com/api/';
-// axios.defaults.headers.common["Authorization"] = "-";
-
+let per_page = 15;
+// import { per_page } from '../main.js';
 // query - те що вводить користувач
-export let page = 1;
-export let per_page = 15;
 
-export async function getImagesByQuery(query, page) {
+export async function getImagesByQuery(query, page = 1) {
   const response = await axios(BASE_URL, {
     params: {
       key: API_KEY,
@@ -32,62 +19,11 @@ export async function getImagesByQuery(query, page) {
       image_type: 'photo',
       orientation: 'horizontal',
       safesearch: true,
-      per_page,
       page,
+      per_page,
     },
   });
 
   // повертаємо тільки те, що потрібно — об'єкт із даними
   return response.data;
 }
-
-// додавання параметрів на кількість карток та сторінок
-
-// let page = 1;
-// let per_page = 15;
-
-export function incrementPage() {
-  page += 1;
-}
-
-export function resetPage() {
-  page = 1;
-}
-
-//   запит на сервер
-
-// export async function moreCards(query, page = 1) {
-//   const response = await axios(`${BASE_URL}`, {
-//     params: {
-//       key: API_KEY,
-//       q: query,
-//       image_type: 'photo',
-//       orientation: 'horizontal',
-//       safesearch: true,
-//       per_page,
-//       page,
-//     },
-//   });
-
-//   //
-//   //
-//   // const params = new URLSearchParams({
-//   //   key: API_KEY,
-//   //   per_page,
-//   //   page,
-//   // });
-
-//   // const response = await axios(`https://pixabay.com/api/?${params}`);
-
-//   console.log(response.data.hits); //                  -                      !!!!!
-
-//   // const response = await axios(BASE_URL, {
-//   //   params: {
-//   //     // key: API_KEY,           //           ???
-//   //     // q: query,
-//   //     per_page,
-//   //     page,
-//   //   },
-//   // });
-//   return response.data;
-// }
