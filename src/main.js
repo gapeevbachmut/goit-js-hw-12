@@ -93,6 +93,7 @@ async function moreClick(event) {
   page += 1;
   more.disabled = true; // кнопка не активна
   showLoader(); // показати завантаження
+  hideLoadMoreButton();
 
   try {
     const moreImages = await getImagesByQuery(myQuery, page);
@@ -120,7 +121,7 @@ async function moreClick(event) {
 
     // more.disabled = false; // кнопка активна - ???
     hideLoader(); // приховати завантаження
-
+    showLoadMoreButton();
     const card = document.querySelector('.gallery-item');
 
     if (card) {
