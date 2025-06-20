@@ -5,12 +5,13 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 import {
   getImagesByQuery,
-  moreCards,
-  // page,
+  // moreCards,
+  incrementPage,
+  resetPage,
+  page,
   per_page,
 } from './js/pixabay-api.js';
-let page = 1; // імпортований page  вважає константою ???
-
+// let page = 1; // імпортований page  вважає константою ???
 // let per_page = 15;
 
 // імпортую нові дані ДЗ №12
@@ -67,7 +68,8 @@ async function handleSubmit(event) {
     });
     return;
   }
-  page = 1; // обнуляю нумерацію сторінок при новому сабміті
+  resetPage();
+  // page = 1; // обнуляю нумерацію сторінок при новому сабміті
   clearGallery(); //
   showLoader(); // показати завантаження
   showMore(); //  ДЗ №12 - показати кнопку
@@ -123,11 +125,12 @@ async function moreClick(event) {
   event.preventDefault();
   // console.log(page);
 
-  page += 1;
+  incrementPage();
+  // page += 1;
   more.disabled = true; // кнопка не активна
 
   try {
-    const moreImages = await moreCards(myQuery, page);
+    const moreImages = await getImagesByQuery(myQuery, page);
     // функція url з параметрами - запит на сервер
     // при кліку  ЩЕ - завантажуються зображення не по пошуку!!!
     // ??????????????????????????????????????????????

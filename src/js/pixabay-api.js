@@ -21,6 +21,8 @@ const BASE_URL = 'https://pixabay.com/api/';
 // axios.defaults.headers.common["Authorization"] = "-";
 
 // query - те що вводить користувач
+export let page = 1;
+export let per_page = 15;
 
 export async function getImagesByQuery(query, page) {
   const response = await axios(BASE_URL, {
@@ -41,43 +43,51 @@ export async function getImagesByQuery(query, page) {
 
 // додавання параметрів на кількість карток та сторінок
 
-// export let page = 1;
-export let per_page = 15;
+// let page = 1;
+// let per_page = 15;
+
+export function incrementPage() {
+  page += 1;
+}
+
+export function resetPage() {
+  page = 1;
+}
 
 //   запит на сервер
 
-export async function moreCards(query, page = 1) {
-  const response = await axios(`${BASE_URL}`, {
-    params: {
-      key: API_KEY,
-      q: query,
-      image_type: 'photo',
-      orientation: 'horizontal',
-      safesearch: true,
-      per_page,
-      page,
-    },
-  });
+// export async function moreCards(query, page = 1) {
+//   const response = await axios(`${BASE_URL}`, {
+//     params: {
+//       key: API_KEY,
+//       q: query,
+//       image_type: 'photo',
+//       orientation: 'horizontal',
+//       safesearch: true,
+//       per_page,
+//       page,
+//     },
+//   });
 
-  //
-  //
-  // const params = new URLSearchParams({
-  //   key: API_KEY,
-  //   per_page,
-  //   page,
-  // });
+//   //
+//   //
+//   // const params = new URLSearchParams({
+//   //   key: API_KEY,
+//   //   per_page,
+//   //   page,
+//   // });
 
-  // const response = await axios(`https://pixabay.com/api/?${params}`);
+//   // const response = await axios(`https://pixabay.com/api/?${params}`);
 
-  console.log(response.data.hits); //                  -                      !!!!!
+//   console.log(response.data.hits); //                  -                      !!!!!
 
-  // const response = await axios(BASE_URL, {
-  //   params: {
-  //     // key: API_KEY,           //           ???
-  //     // q: query,
-  //     per_page,
-  //     page,
-  //   },
-  // });
-  return response.data;
-}
+//   // const response = await axios(BASE_URL, {
+//   //   params: {
+//   //     // key: API_KEY,           //           ???
+//   //     // q: query,
+//   //     per_page,
+//   //     page,
+//   //   },
+//   // });
+//   return response.data;
+// }
